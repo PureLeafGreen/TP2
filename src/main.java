@@ -8,6 +8,7 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class main {
+
     public static void lireFichier() {
         BufferedReader reader = null;
         try {
@@ -118,35 +119,38 @@ public class main {
         System.out.println("Position pour un item du meme type pour la meme journee: " + positionOrder + "/" + data.size());
     }
 
-    public static Integer getPremierSinonDeuxieme(Element<T> liste1, Element<T> liste2, int i) {
-        if (<T> liste1[i] != null) {
-            return <T> liste1[i];
+    static <T> T getPremierSinonDeuxieme(T[] liste, T[] liste2, int i) {
+        if (liste[i] != null) {
+            return liste[i];
         }
-        else if (<T> liste2[i] != null) {
-            return <T> liste2[i];
-        }
-        return null;
+        return liste2[i];
     }
-
 
     public static void main(String[] args) {
         AfficherPositionVentesMemeItemJour(Integer.toString(449057424));
         AfficherPositionVentesMemeItemJour(Integer.toString(968184173));
         AfficherPositionVentesMemeItemJour(Integer.toString(211039054));
         AfficherPositionVentesMemeItemJour(Integer.toString(546093308));
+
+
         System.out.println("=======================");
         System.out.println("QUESTION 2");
         System.out.println("=======================");
+
+
         Integer[] liste1_1 = {10, null, 30, 40, 50};
         Integer[] liste1_2 = {110, 120, 130, 140, 150};
+
+
         Integer resultat = getPremierSinonDeuxieme(liste1_1, liste1_2, 2);
         System.out.println(resultat);
-        Integer[] liste2_1 = {10, null, 30, 40, 50};
-        Integer[] liste2_2 = {110, 120, 130, 140, 150};
-        Integer resultat2 = getPremierSinonDeuxieme(liste2_1, liste2_2, 1);
-        System.out.println(resultat2);
-    }
 
-    private static class T {
+
+        String[] liste2_1 = {"Cerise", null, null, "Pomme", "Orange"};
+        String[] liste2_2 = {"Navet", "Tomate", "Carotte", "Concombre", "Patate"};
+
+
+        String resultat2 = getPremierSinonDeuxieme(liste2_1, liste2_2, 1);
+        System.out.println(resultat2);
     }
 }
